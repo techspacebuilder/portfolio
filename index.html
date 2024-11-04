@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpaceBuilder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <style>
+        .btn,.btn2{
+            padding: 10px 20px; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+        }
+
+        a:hover{
+           background-color: #2872c0;
+        }
+        .btn:hover{
+               background-color: #4CAF50 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div data-scroll data-scroll-speed="-5" id="page1">
+            <nav>
+                <img src="./logo.jpeg" alt="">
+                <div id="right-nav" style="position: relative;">
+                    <!-- Projects Button -->
+                    <button class="btn btn1" onclick="toggleDropdown('dropdown-menu', this)" >
+                        Projects
+                    </button>
+                    <!-- Projects Dropdown Menu -->
+                    <div id="dropdown-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #0d2ad170; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); min-width: 200px; z-index: 1; color: white;">
+                        <br>
+
+                        <p style="font-size: 10px;color:red">*These are some design, Just to give an overview of modern websites. </p>
+                        
+                        <a target="_blank" href="https://techspacebuilder.github.io/real-estate/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">1. New House</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/now-real-estate/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">2. Find Home</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/smart_space/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">3. Smart Apartment</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/home_property/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">4. Home Property</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/myhome/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">5. Home Market</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/home_master/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">6. Dream House</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/home_website/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">7. Smart Home</a>
+                        <a target="_blank" href="https://techspacebuilder.github.io/realestate_master/" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">8. Rent Home</a>
+                    </div>
+                
+                    <!-- Contact Us Button -->
+                    <button class="btn" onclick="toggleDropdown('dropdown-menu2', this)">
+                        About Me
+                    </button>
+                    <!-- Contact Us Dropdown Menu -->
+                    <div id="dropdown-menu2" style="display: none; position: absolute; top: 100%; right: 0; background-color: #f9f9f9; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); min-width: 250px; z-index: 1; padding: 16px;">
+                        <p style="color: black; font-size: 14px; margin: 0;">
+                            I’m dedicated to providing exceptional service in real estate. If you have questions or need assistance, don’t hesitate to reach out
+                            <br>
+                            <p>—I’m here to help!</p> 
+                        </p>
+                        <br>
+                        
+                        <a href="myresumelatest.pdf" target="_blank">
+                            <button class="btn2" style="background-color: #4CAF50 !important;">
+                                Check My Resume
+                            </button>
+                        </a>
+                        <br>
+                        <p style="color: black; font-size: 14px; margin-top: 8px;">Contact Email: 
+                            <a href="mailto:techspacebuilder@gmail.com"  style="color: #007BFF; text-decoration: none;">techspacebuilder@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </nav>
+            <div class="bottom-page1">
+                <h1>Achieve Real  <br> Estate Agility</h1>
+                <div class="bottom-page1-inner">
+                    <h4>Transform your existing building into a digital twin <br> unlocking the full potential of Web technology.</h4>
+                    
+                </div>
+            </div>
+            <video src="https://thisismagma.com/wp-content/themes/magma/assets/home/hero/1.mp4?2" autoplay loop muted ></video>
+        </div>
+        <div id="page2">
+            <h2 style="text-transform: uppercase;">Transform Your Real Estate Investments!</h2>
+            <h1>As a real estate owner, you hold the key to unlocking greater value in your properties. With innovative strategies and insights, I can help you maximize your returns, streamline property management, and attract the right buyers. Let’s work together to elevate your real estate portfolio and achieve your investment goals!
+            </h1>
+        </div>
+        <div id="page3">
+            <canvas></canvas>
+        </div>
+        <div id="page4">
+            <h3 style="text-transform: uppercase;">Building Structure for Sales Growth</h3>
+            <h1>As a web developer, I focus on creating a strong online presence that drives sales growth. By designing intuitive, user-friendly websites with robust structures, I ensure seamless navigation and enhanced user experience. My expertise in real estate space will boost your visibility, attract more customers, and ultimately increase conversions. Let’s build a digital platform that showcases your properties and accelerates your business growth!.</h1>
+        </div>
+        <div id="page5">
+            <canvas></canvas>
+        </div>
+        <div id="page6">
+            <h3 style="text-transform: uppercase;">Why Choose Me?</h3>
+            <h1>I offer tailored strategies and deep market insights to maximize your real estate investments. With a commitment to exceptional service, I’ll support you every step of the way to achieve your goals. Let’s unlock your properties' full potential together!.</h1>
+        </div>
+        <div id="page7">
+            <div class="page7-cir">
+                <div class="page7-cir-inner"></div>
+            </div>
+            <canvas></canvas>
+        </div>
+        <div id="page8">
+            <div class="page8-bottom">
+                <h1>Why Waiting More?</h1>
+                <button style="background-color:#0058ffa8 !important;color:#ebd9d9 !important;font-size:0.9rem;">Don’t miss out on the chance to elevate your business—let’s start building your success today!</button>
+            </div>
+            <video src="https://thisismagma.com/wp-content/themes/magma/assets/home/hero/1.mp4?2"autoplay loop muted></video>
+        </div>
+        <!-- <div id="page9">
+            <div class="left9">
+                <h1>What is <br> Magma?</h1>
+            </div>
+            <div class="right9">
+                <div class="right9-center"></div>
+            </div>
+        </div>
+        <div id="page10">
+            <div class="right10">
+                <div class="right10-inner">
+                    <h1>Web3 platform
+                    </h1>
+                    <p>Magma is a Web3 platform for all real estate stakeholders, which provides users with the ability to manage interactions between physical and digital assets through unique, and collectively generated, 3D representations of their buildings.</p>
+                </div>
+                <div class="right10-inner">
+                    <h1>The Digital Twin Token: The building’s unique digital copy</h1>
+                    <p>Magma uses blockchain technology to record essential data, which enables transparent, traceable, and immutable streams of information to be readily accessible to its users. Magma smart contracts are built with this blockchain data to expedite tasks like requests for proposals, lease agreements, and services arrangements.</p>
+                </div>
+                <div class="right10-inner">
+                    <h1>An Index of digitization</h1>
+                    <p>The Magma Index provides valuable insight for decision-making regarding data-sharing, service-creating, and operational/environmental expectations.</p>
+                </div>
+            </div>
+        </div>
+        <div id="page11">
+            <h1>Recent Blog</h1>
+            <div class="page11-inner">
+                <div class="left11">
+                    <img src="https://thisismagma.com/wp-content/uploads/2023/05/thisismagma.com-magma-a-la-3eme-edition-du-tech-talk-de-cbre-france-1684942208038.jpeg" alt="">
+                </div>
+                <div class="right11">
+                    <h4>MAY 30,2023</h4>
+                    <h1>Magma At CBRE France's 3rd Tech Talk</h1>
+
+                </div>
+            </div>
+            <div class="page11-inner">
+                <div class="left11">
+                    <img src="https://thisismagma.com/wp-content/uploads/2023/05/thisismagma.com-workshop-blockchain-et-actif-digitaux-sba-16-min-scaled.jpg" alt="">
+                </div>
+                <div class="right11">
+                    <h4>MAY 30,2023</h4>
+                    <h1>Magma At CBRE France's 3rd Tech Talk</h1>
+
+                </div>
+            </div>
+            <div class="page11-inner">
+                <div class="left11">
+                    <img src="https://thisismagma.com/wp-content/uploads/2023/03/magma.wp2.cubdev.com-exploring-the-potential-of-real-estate-tokenization-digital-twins-magma.png" alt="">
+                </div>
+                <div class="right11">
+                    <h4>MAY 30,2023</h4>
+                    <h1>Magma At CBRE France's 3rd Tech Talk</h1>
+
+                </div>
+            </div>
+          
+        </div>
+        <div id="page12">
+            <div class="page12-inner">
+                <h1>Featured In</h1>
+                <p>Thrilled to have been featured in several prominent media <br> outlets and leading professionals across the world’s best <br> real estate and web3 institutions.</p>
+            </div>
+        </div>
+        <div id="page13">
+            <h1>Become an
+                <br>
+                early adopter</h1>
+                <button>BOOK A DEMO</button>
+        </div>
+        <div id="page14">
+            <div class="page14-inner">
+                <h1>Twitter</h1>
+                <i class="ri-arrow-right-up-line"></i>
+                <div class="center14"></div>
+            </div>
+            <div class="page14-inner">
+                <h1>LinkedIn</h1>
+                <i class="ri-arrow-right-up-line"></i>
+                <div class="center14"></div>
+
+            </div>
+            <div class="page14-inner">
+                <h1>Instagram</h1>
+                <i class="ri-arrow-right-up-line"></i>
+                <div class="center14"></div>
+
+            </div>
+        </div> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js" integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js" integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+<script>
+    function toggleDropdown(dropdownId, button) {
+        // Get both dropdown elements
+        var dropdown1 = document.getElementById("dropdown-menu");
+        var dropdown2 = document.getElementById("dropdown-menu2");
+
+        // Get the selected dropdown based on the id
+        var selectedDropdown = document.getElementById(dropdownId);
+
+        // Check if the selected dropdown is currently visible
+        if (selectedDropdown.style.display === "block") {
+            selectedDropdown.style.display = "none"; // Hide if already visible
+            button.style.backgroundColor = ""; // Reset background color of the button
+        } else {
+            // Hide both dropdowns first
+            dropdown1.style.display = "none";
+            dropdown2.style.display = "none";
+
+            // Reset the background color of both buttons
+            var buttons = document.querySelectorAll('.btn');
+            buttons.forEach(function(btn) {
+                btn.style.backgroundColor = ""; // Clear the background color
+            });
+
+            // Show the selected dropdown and change the button's background color
+            selectedDropdown.style.display = "block";
+            button.style.backgroundColor = "#4CAF50"; // Change the background color of the active button
+        }
+    }
+</script>
+
+
+</html>
