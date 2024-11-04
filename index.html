@@ -300,94 +300,83 @@
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const loaderText = document.getElementById("loader-text");
-    const loaderBar = document.getElementById("loader-bar");
+    document.addEventListener("DOMContentLoaded", () => {
+        const loaderText = document.getElementById("loader-text");
+        const loaderBar = document.getElementById("loader-bar");
     
-    // Check if the user has already visited the page
-    const hasVisited = localStorage.getItem("hasVisited");
-
-    if (hasVisited) {
-        // User has visited before, so show the main content directly
-        document.getElementById("loader").style.display = "none"; // Hide loader
-        document.getElementById("main").style.display = "block"; // Show main content
-    } else {
-        // User is visiting for the first time, show the loader
-        localStorage.setItem("hasVisited", "true"); // Mark user as visited
-
-        let loadingStartTime = performance.now();
-        let loadingDuration = 20000; // Set expected loading time in milliseconds
-
-        // Array of loading messages for different elapsed time ranges
-        const loadingMessages = [
-            "Initializing...",
-            "Loading buildings...",
-            "Loading resources...",
-            "Almost there...",
-            "Finalizing..",
-            "Welcome aboard!"
-        ];
-
-        const messageColors = [
-
-            'yellow',
-            'orange',
-            'pink',
-            '#21ff21',
-            '#15d3ff',
-            'purple'     // For "Welcome aboard!"
-        ];
-
-        const interval = setInterval(() => {
-            // Calculate elapsed time
-            let elapsed = performance.now() - loadingStartTime;
-
-            // Calculate the loading percentage
-            let progress = Math.min((elapsed / loadingDuration) * 100, 100);
-
-            // Update loader bar
-            loaderBar.style.width = `${progress}%`;
-
-            // Update loading message and color based on the elapsed time
-            if (progress < 20) {
-                loaderText.textContent = loadingMessages[0];
-                loaderText.style.color = messageColors[0]; // Black
-            } else if (progress < 40) {
-                loaderText.textContent = loadingMessages[1];
-                loaderText.style.color = messageColors[1]; // Blue
-            } else if (progress < 60) {
-                loaderText.textContent = loadingMessages[2];
-                loaderText.style.color = messageColors[2]; // Green
-            } else if (progress < 80) {
-                loaderText.textContent = loadingMessages[3];
-                loaderText.style.color = messageColors[3]; // Orange
-            } else if (progress < 100) {
-                loaderText.textContent = loadingMessages[4];
-                loaderText.style.color = messageColors[4]; // Red
-            } else {
-                loaderText.textContent = loadingMessages[5]; // Final message
-                loaderText.style.color = messageColors[5]; // Purple
-            }
-
-            if (progress >= 100) {
-                clearInterval(interval);
+        // Check if the user has already visited the page
+        const hasVisited = localStorage.getItem("hasVisited");
+    
+        if (hasVisited) {
+            // User has visited before, so show the main content directly
+            document.getElementById("loader").style.display = "none"; // Hide loader
+            document.getElementById("main").style.display = "block"; // Show main content
+        } else {
+            // User is visiting for the first time, show the loader
+            localStorage.setItem("hasVisited", "true"); // Mark user as visited
+    
+            const loadingMessages = [
+                "Initializing...",
+                "Loading buildings...",
+                "Loading resources...",
+                "Almost there...",
+                "Finalizing..",
+                "Welcome aboard!"
+            ];
+    
+            const messageColors = [
+                'yellow',
+                'orange',
+                'pink',
+                '#21ff21',
+                '#15d3ff',
+                'purple' // For "Welcome aboard!"
+            ];
+    
+            const interval = setInterval(() => {
+                // Calculate the loading percentage based on time elapsed since start
+                let progress = Math.min((performance.now() / 20000) * 100, 100);
+    
+                // Update loader bar width
+                loaderBar.style.width = `${progress}%`;
+    
+                // Update loading message and color based on the percentage
+                if (progress < 20) {
+                    loaderText.textContent = loadingMessages[0];
+                    loaderText.style.color = messageColors[0];
+                } else if (progress < 40) {
+                    loaderText.textContent = loadingMessages[1];
+                    loaderText.style.color = messageColors[1];
+                } else if (progress < 60) {
+                    loaderText.textContent = loadingMessages[2];
+                    loaderText.style.color = messageColors[2];
+                } else if (progress < 80) {
+                    loaderText.textContent = loadingMessages[3];
+                    loaderText.style.color = messageColors[3];
+                } else if (progress < 100) {
+                    loaderText.textContent = loadingMessages[4];
+                    loaderText.style.color = messageColors[4];
+                } else {
+                    loaderText.textContent = loadingMessages[5]; // Final message
+                    loaderText.style.color = messageColors[5];
+                }
+            }, 100); // Update every 100ms
+    
+            // Wait for full page load
+            window.onload = () => {
+                clearInterval(interval); // Stop the interval when page is fully loaded
                 document.getElementById("loader").style.display = "none"; // Hide loader
                 document.getElementById("main").style.display = "block"; // Show main content
-
-                setTimeout(() => {
+            };
+            
+            setTimeout(() => {
                     location.reload(); // Refresh the page after a brief moment
                 }, 500); // Optional delay before refresh
-            }
-        }, 100); // Update every 100ms
 
-        // Simulate loading duration; adjust the timeout to match the loading time of your content
-        setTimeout(() => {
-            loadingDuration = performance.now() - loadingStartTime; // Set the actual duration
-        }, loadingDuration); // End the loading simulation after the expected duration
-    }
-});
-
-
-</script>
+            
+        }
+    });
+    </script>
+    
 
 </html>
