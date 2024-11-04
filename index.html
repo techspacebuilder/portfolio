@@ -370,9 +370,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (progress >= 100) {
+
+                // Wait for full page load
                 clearInterval(interval);
-                document.getElementById("loader").style.display = "none"; // Hide loader
-                document.getElementById("main").style.display = "block"; // Show main content
+                window.onload = () => {
+                             // Stop the interval when page is fully loaded
+                            document.getElementById("loader").style.display = "none"; // Hide loader
+                            document.getElementById("main").style.display = "block"; // Show main content
+                        };
 
                 setTimeout(() => {
                     location.reload(); // Refresh the page after a brief moment
