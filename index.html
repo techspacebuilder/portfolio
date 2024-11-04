@@ -22,10 +22,65 @@
         .btn:hover{
                background-color: #4CAF50 !important;
         }
+
+
+
+    </style>
+
+    <style>
+
+        /* Fullscreen loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Loader text */
+#loader-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Loading bar container */
+#loader-bar {
+    width: 80%;
+    height: 10px;
+    background-color: #555;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Loading bar fill */
+#loader-bar:after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.2s;
+}
+
     </style>
 </head>
 <body>
-    <div id="main">
+
+        <!-- Loader Container -->
+    <div id="loader">
+        <div id="loader-text">Loading 0%</div>
+        <div id="loader-bar"></div>
+    </div>
+
+        
+    <div id="main" style="display: none;">
         <div data-scroll data-scroll-speed="-5" id="page1">
             <nav>
                 <img src="./logo.jpeg" alt="">
@@ -244,5 +299,54 @@
     }
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const loaderText = document.getElementById("loader-text");
+    const loaderBar = document.getElementById("loader-bar");
+    
+    // Check if the user has already visited the page
+    const hasVisited = localStorage.getItem("hasVisited");
+
+    if (hasVisited) {
+        // User has visited before, so show the main content directly
+        document.getElementById("loader").style.display = "none"; // Hide loader
+        document.getElementById("main").style.display = "block"; // Show main content
+    } else {
+        // User is visiting for the first time, show the loader
+        localStorage.setItem("hasVisited", "true"); // Mark user as visited
+
+        let loadingStartTime = performance.now();
+        let loadingDuration = 20000; // Set expected loading time in milliseconds
+
+        const interval = setInterval(() => {
+            // Calculate elapsed time
+            let elapsed = performance.now() - loadingStartTime;
+
+            // Calculate the loading percentage
+            let progress = Math.min((elapsed / loadingDuration) * 100, 100);
+
+            loaderText.textContent = `Loading ${Math.round(progress)}%`;
+            loaderBar.style.width = `${progress}%`;
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                document.getElementById("loader").style.display = "none"; // Hide loader
+                document.getElementById("main").style.display = "block"; // Show main content
+
+                setTimeout(() => {
+                    location.reload(); // Refresh the page after a brief moment
+                }, 500); // Optional delay before refresh
+            }
+        }, 100); // Update every 100ms
+
+        // Simulate loading duration; adjust the timeout to match the loading time of your content
+        setTimeout(() => {
+            loadingDuration = performance.now() - loadingStartTime; // Set the actual duration
+        }, loadingDuration); // End the loading simulation after the expected duration
+    }
+});
+
+
+</script>
 
 </html>
