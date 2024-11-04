@@ -53,8 +53,8 @@
 /* Loading bar container */
 #loader-bar {
     width: 80%;
-    height: 10px;
-    background-color: #555;
+    height: 6px;
+    background: linear-gradient(to right, #007bff, #66b3ff); /* Blue to light blue */ /* Change colors as needed */
     border-radius: 5px;
     overflow: hidden;
 }
@@ -75,7 +75,7 @@
 
         <!-- Loader Container -->
     <div id="loader">
-        <div id="loader-text">Loading 0%</div>
+        <div id="loader-text">Loading..</div>
         <div id="loader-bar"></div>
     </div>
 
@@ -118,7 +118,7 @@
                         </p>
                         <br>
                         
-                        <a href="myresumelatest.pdf" target="_blank">
+                        <a href="developer-jack.pdf" target="_blank">
                             <button class="btn2" style="background-color: #4CAF50 !important;">
                                 Check My Resume
                             </button>
@@ -318,6 +318,26 @@ document.addEventListener("DOMContentLoaded", () => {
         let loadingStartTime = performance.now();
         let loadingDuration = 20000; // Set expected loading time in milliseconds
 
+        // Array of loading messages for different elapsed time ranges
+        const loadingMessages = [
+            "Initializing...",
+            "Loading buildings...",
+            "Loading resources...",
+            "Almost there...",
+            "Finalizing..",
+            "Welcome aboard!"
+        ];
+
+        const messageColors = [
+
+            'yellow',
+            'orange',
+            'pink',
+            '#21ff21',
+            '#15d3ff',
+            'purple'     // For "Welcome aboard!"
+        ];
+
         const interval = setInterval(() => {
             // Calculate elapsed time
             let elapsed = performance.now() - loadingStartTime;
@@ -325,8 +345,29 @@ document.addEventListener("DOMContentLoaded", () => {
             // Calculate the loading percentage
             let progress = Math.min((elapsed / loadingDuration) * 100, 100);
 
-            loaderText.textContent = `Loading ${Math.round(progress)}%`;
+            // Update loader bar
             loaderBar.style.width = `${progress}%`;
+
+            // Update loading message and color based on the elapsed time
+            if (progress < 20) {
+                loaderText.textContent = loadingMessages[0];
+                loaderText.style.color = messageColors[0]; // Black
+            } else if (progress < 40) {
+                loaderText.textContent = loadingMessages[1];
+                loaderText.style.color = messageColors[1]; // Blue
+            } else if (progress < 60) {
+                loaderText.textContent = loadingMessages[2];
+                loaderText.style.color = messageColors[2]; // Green
+            } else if (progress < 80) {
+                loaderText.textContent = loadingMessages[3];
+                loaderText.style.color = messageColors[3]; // Orange
+            } else if (progress < 100) {
+                loaderText.textContent = loadingMessages[4];
+                loaderText.style.color = messageColors[4]; // Red
+            } else {
+                loaderText.textContent = loadingMessages[5]; // Final message
+                loaderText.style.color = messageColors[5]; // Purple
+            }
 
             if (progress >= 100) {
                 clearInterval(interval);
